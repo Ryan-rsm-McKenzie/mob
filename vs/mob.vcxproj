@@ -83,6 +83,7 @@
     <ClCompile Include="..\src\tasks\boost.cpp" />
     <ClCompile Include="..\src\tasks\boost_di.cpp" />
     <ClCompile Include="..\src\tasks\bzip2.cpp" />
+    <ClCompile Include="..\src\tasks\directxtex.cpp" />
     <ClCompile Include="..\src\tasks\explorerpp.cpp" />
     <ClCompile Include="..\src\tasks\fmt.cpp" />
     <ClCompile Include="..\src\tasks\gtest.cpp" />
