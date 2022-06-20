@@ -210,6 +210,9 @@
     <ClCompile Include="..\src\tasks\binary_io.cpp">
       <Filter>src\tasks</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\tasks\mmio.cpp">
+      <Filter>src\tasks</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\pch.h">

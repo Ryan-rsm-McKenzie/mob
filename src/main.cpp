@@ -39,6 +39,7 @@ void add_tasks()
 		.add_task<libffi>()
 		.add_task<directxtex>()
 		.add_task<binary_io>()
+		.add_task<mmio>()
 		.add_task<bzip2>();
 
 	add_task<parallel_tasks>()

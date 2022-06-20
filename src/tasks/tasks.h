@@ -374,6 +374,22 @@ private:
 };
 
 
+class mmio : public basic_task<mmio>
+{
+public:
+	mmio();
+
+	static std::string version();
+	static bool prebuilt();
+	static fs::path source_path();
+
+protected:
+	void do_clean(clean c) override;
+	void do_fetch() override;
+	void do_build_and_install() override;
+};
+
+
 class ncc : public basic_task<ncc>
 {
 public:
