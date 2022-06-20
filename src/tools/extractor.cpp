@@ -167,7 +167,7 @@ void extractor::check_for_top_level_directory(const fs::path& ifile)
 	for (auto e : fs::directory_iterator(where_))
 	{
 		// but don't delete the directory itself
-		if (e.path().filename() == dir_name)
+		if (_wcsicmp(e.path().filename().lexically_normal().c_str(), dir_name.lexically_normal().c_str()) == 0)
 			continue;
 
 		// or the interrupt file
