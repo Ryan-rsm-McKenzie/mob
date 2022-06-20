@@ -50,6 +50,7 @@ void add_tasks()
     add_task<parallel_tasks>()
         .add_task<boost>()
 		.add_task<boost_di>()
+		.add_task<bsa>()
 		.add_task<sip>();
 
 	add_task<parallel_tasks>()
