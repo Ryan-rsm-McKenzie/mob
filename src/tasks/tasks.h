@@ -13,6 +13,22 @@ namespace mob::tasks
 // single header for all the tasks, not worth having a header per task
 
 
+class binary_io : public basic_task<binary_io>
+{
+public:
+	binary_io();
+
+	static std::string version();
+	static bool prebuilt();
+	static fs::path source_path();
+
+protected:
+	void do_clean(clean c) override;
+	void do_fetch() override;
+	void do_build_and_install() override;
+};
+
+
 class boost : public basic_task<boost>
 {
 public:

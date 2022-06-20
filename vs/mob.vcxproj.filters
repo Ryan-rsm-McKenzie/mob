@@ -207,6 +207,9 @@
     <ClCompile Include="..\src\tasks\directxtex.cpp">
       <Filter>src\tasks</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\tasks\binary_io.cpp">
+      <Filter>src\tasks</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\pch.h">
