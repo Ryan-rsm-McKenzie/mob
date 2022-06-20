@@ -203,9 +203,22 @@ cmake modorganizer::create_cmake_tool(cmake::ops o)
 
 cmake modorganizer::create_cmake_tool(const fs::path& root, cmake::ops o)
 {
+	std::string prefixPath;
+	const auto prefix = [&](const std::filesystem::path& p) {
+		if (!prefixPath.empty())
+			prefixPath += ';';
+		prefixPath += p.string();
+	};
+
+	prefix(binary_io::source_path() / "build");
+	prefix(bsa::source_path() / "build");
+	prefix(directxtex::source_path() / "build");
+	prefix(mmio::source_path() / "build");
+
 	return std::move(cmake(o)
 		.generator(cmake::vs)
 		.def("CMAKE_INSTALL_PREFIX:PATH", conf().path().install())
+		.def("CMAKE_PREFIX_PATH",         prefixPath)
 		.def("DEPENDENCIES_DIR",          conf().path().build())
 		.def("BOOST_ROOT",                boost::source_path())
 		.def("BOOST_LIBRARYDIR",          boost::lib_path(arch::x64))
@@ -221,6 +234,8 @@ cmake modorganizer::create_cmake_tool(const fs::path& root, cmake::ops o)
 		.def("BOOST_DI_ROOT",             boost_di::source_path())
 		.def("GTEST_ROOT",                gtest::source_path())
 		.def("OPENSSL_ROOT_DIR",          openssl::source_path())
+		.def("LZ4_INCLUDE_DIR:PATH",      lz4::source_path() / "lib")
+		.def("LZ4_LIBRARY_RELEASE:PATH",  lz4::source_path() / "bin" / "liblz4.lib")
 		.root(root));
 }
 
